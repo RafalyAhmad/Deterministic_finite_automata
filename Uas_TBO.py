@@ -28,11 +28,11 @@ class DFA:
 
 # Define the DFA
 states = {'q0', 'q1', 'q2'}
-alphabet = {'0', '1'}
+alphabet = {'a', 'b'}
 transition_function = {
-    'q0': {'0': 'q1', '1': 'q0'},
-    'q1': {'0': 'q1', '1': 'q2'},
-    'q2': {'0': 'q1', '1': 'q0'}
+    'q0': {'a': 'q1', 'b': 'q0'},
+    'q1': {'a': 'q1', 'b': 'q2'},
+    'q2': {'a': 'q1', 'b': 'q0'}
 }
 start_state = 'q0'
 accept_states = {'q2'}
@@ -41,7 +41,7 @@ accept_states = {'q2'}
 dfa = DFA(states, alphabet, transition_function, start_state, accept_states)
 
 # Test the DFA
-test_strings = ['001', '011', '101', '0101', '110']
+test_strings = ['aab', 'abb', 'bab', 'baab', 'bba']
 results = {s: dfa.process_string(s) for s in test_strings}
 
 print("DFA Results:")
